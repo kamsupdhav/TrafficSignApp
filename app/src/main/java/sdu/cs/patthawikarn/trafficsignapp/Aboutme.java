@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class Aboutme extends AppCompatActivity {
     //Explicit
-    TextView fbTextView,telTextView;
+    TextView fbTextView,telTextView,eduTextView;
+    Button backButton;
 
 
     @Override
@@ -37,5 +39,25 @@ public class Aboutme extends AppCompatActivity {
                 startActivity(telIntent);
             }
         });
+
+        eduTextView = findViewById(R.id.tv_edu);
+        final Uri location = Uri.parse("http://maps.google.com/maps?z=10&q=loc:13.776678,100.511347(มหาวิทยาลัยสวนดุสิต)");
+        eduTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, location);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
+            }
+        });
+
+        backButton = findViewById(R.id.btn_back);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               finish();
+            }
+        });
+
     } //end On create() Method
 } //end Class

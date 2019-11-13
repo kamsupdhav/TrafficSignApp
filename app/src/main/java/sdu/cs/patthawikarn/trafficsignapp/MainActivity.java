@@ -26,6 +26,15 @@ public class MainActivity extends AppCompatActivity {
                 moreinfoIntent.setData(Uri.parse("https://www.dlt.go.th/th/"));
                 startActivity(moreinfoIntent);
             }
-        });
+        }); //End MoreInfo
+
+        aboutmeButton = findViewById(R.id.btn_aboutme);
+        aboutmeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent aboutmeIntent = new Intent(MainActivity.this,Aboutme.class);
+                startActivity(aboutmeIntent);
+            }
+        }); //End Aboutme
     } //end On create() Method
 }//end class
